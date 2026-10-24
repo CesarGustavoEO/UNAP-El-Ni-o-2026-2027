@@ -1,0 +1,76 @@
+﻿departamento,estado_previo,n_meses,MAE_meteo_mm,MAE_ENSO_mm,aporte_ENSO_pct
+Amazonas,Calido,14,11.628,12.323,-5.977
+Amazonas,Frio,12,20.198,23.471,-16.204
+Amazonas,Neutral,22,19.280,19.421,-0.731
+Apurímac,Calido,14,15.963,15.655,1.931
+Apurímac,Frio,12,30.094,41.065,-36.456
+Apurímac,Neutral,22,27.342,27.379,-0.135
+Arequipa,Calido,14,10.922,11.308,-3.540
+Arequipa,Frio,12,13.100,15.211,-16.114
+Arequipa,Neutral,22,9.130,9.433,-3.311
+Ayacucho,Calido,14,9.978,13.486,-35.155
+Ayacucho,Frio,12,47.126,47.756,-1.336
+Ayacucho,Neutral,22,24.296,24.090,0.850
+Cajamarca,Calido,14,18.307,19.846,-8.407
+Cajamarca,Frio,12,40.283,45.470,-12.877
+Cajamarca,Neutral,22,19.719,19.390,1.669
+Callao,Calido,14,1.736,2.131,-22.705
+Callao,Frio,12,6.767,6.827,-0.874
+Callao,Neutral,22,4.684,4.849,-3.504
+Cusco,Calido,14,21.816,22.047,-1.062
+Cusco,Frio,12,45.172,37.383,17.244
+Cusco,Neutral,22,21.922,22.748,-3.770
+Huancavelica,Calido,14,5.766,6.723,-16.593
+Huancavelica,Frio,12,27.740,27.657,0.301
+Huancavelica,Neutral,22,18.085,18.834,-4.141
+Huánuco,Calido,14,27.158,30.888,-13.733
+Huánuco,Frio,12,40.836,36.933,9.557
+Huánuco,Neutral,22,28.014,27.682,1.185
+Ica,Calido,14,3.891,4.061,-4.364
+Ica,Frio,12,15.821,16.486,-4.207
+Ica,Neutral,22,11.849,12.242,-3.321
+Junín,Calido,14,8.412,8.302,1.314
+Junín,Frio,12,29.755,27.692,6.931
+Junín,Neutral,22,18.855,19.513,-3.491
+La Libertad,Calido,14,8.943,8.703,2.686
+La Libertad,Frio,12,18.835,21.723,-15.329
+La Libertad,Neutral,22,13.070,12.458,4.682
+Lambayeque,Calido,14,4.418,5.855,-32.520
+Lambayeque,Frio,12,7.023,7.134,-1.588
+Lambayeque,Neutral,22,11.962,12.683,-6.031
+Lima,Calido,14,1.736,2.131,-22.705
+Lima,Frio,12,6.767,6.827,-0.874
+Lima,Neutral,22,4.684,4.849,-3.504
+Loreto,Calido,14,94.449,90.041,4.667
+Loreto,Frio,12,114.403,110.516,3.398
+Loreto,Neutral,22,83.231,80.460,3.329
+Madre de Dios,Calido,14,54.096,67.752,-25.244
+Madre de Dios,Frio,12,62.218,62.917,-1.123
+Madre de Dios,Neutral,22,96.440,92.912,3.659
+Moquegua,Calido,14,5.610,5.163,7.954
+Moquegua,Frio,12,9.581,11.531,-20.346
+Moquegua,Neutral,22,4.656,4.618,0.811
+Pasco,Calido,14,14.126,17.558,-24.298
+Pasco,Frio,12,31.439,28.074,10.702
+Pasco,Neutral,22,21.521,21.222,1.388
+Piura,Calido,14,4.861,5.880,-20.963
+Piura,Frio,12,9.081,10.204,-12.371
+Piura,Neutral,22,24.866,26.797,-7.769
+Puno,Calido,14,35.971,34.523,4.026
+Puno,Frio,12,20.220,21.461,-6.137
+Puno,Neutral,22,21.677,20.920,3.492
+San Martín,Calido,14,34.422,30.832,10.428
+San Martín,Frio,12,33.433,35.059,-4.862
+San Martín,Neutral,22,34.086,34.379,-0.858
+Tacna,Calido,14,1.388,2.248,-61.960
+Tacna,Frio,12,6.862,6.932,-1.020
+Tacna,Neutral,22,2.580,2.383,7.639
+Tumbes,Calido,14,15.140,13.275,12.318
+Tumbes,Frio,12,17.339,18.300,-5.539
+Tumbes,Neutral,22,16.496,17.023,-3.195
+Ucayali,Calido,14,45.538,49.463,-8.619
+Ucayali,Frio,12,51.560,59.545,-15.487
+Ucayali,Neutral,22,53.633,56.951,-6.187
+Áncash,Calido,14,27.096,24.250,10.506
+Áncash,Frio,12,27.929,27.827,0.367
+Áncash,Neutral,22,30.327,29.722,1.994
