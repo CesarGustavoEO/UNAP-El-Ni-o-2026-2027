@@ -1,17 +1,3 @@
-ML1 CORREGIDO - PARA ENVIAR AL RESPONSABLE DEL MODULO
 
-1. Este paquete contiene el app.py corregido y requirements.txt.
-2. Reemplazar UNICAMENTE ml1/app.py en el repositorio grupal.
-3. Conservar intacta la carpeta ml1/datos/ con los CSV originales,
-   y conservar los archivos de investigacion y Colab del compañero.
-4. NO reemplazar el app.py de la raiz del repositorio grupal.
-5. El requirements.txt incluido es para ejecucion individual; no hace
-   falta reemplazar el requirements.txt global del grupo.
 
-CAMBIOS
-- Figura 02: ranking ordenado, diez categorias discretas y barras legibles.
-- Figura 03: titulo y nota que aclaran su caracter esquematico.
-- Tipografia DM Sans coherente con el estilo editorial.
-- Metricas de validacion en dos columnas.
-- Claves unicas para widgets y graficos.
-- Sin cambios en los CSV, valores, metodologia ni modelo.
+
