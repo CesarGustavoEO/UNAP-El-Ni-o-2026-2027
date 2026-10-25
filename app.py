@@ -140,10 +140,7 @@ def inicio():
         unsafe_allow_html=True,
     )
 
-    st.caption(
-        "Proyecto grupal · Los módulos ML1, ML2 y ML3 "
-        "mantienen su autoría y desarrollo independientes."
-    )
+   
 
 
 pages = [
