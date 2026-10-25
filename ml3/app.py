@@ -165,7 +165,13 @@ with t2:
         f.add_shape(type="line",xref="x",yref="y",x0=final_date,x1=label_date,y0=value,y1=adjusted,line=dict(color=color,width=1))
         f.add_annotation(x=label_date,y=adjusted,xref="x",yref="y",text=f"<b>{label}</b>",showarrow=False,xanchor="left",yanchor="middle",xshift=5,font=dict(family="Arial",size=11,color=color),bgcolor="rgba(255,255,255,0.93)")
     f.update_layout(margin=dict(l=10,r=15,t=22,b=15),showlegend=False)
-    f.update_xaxes(range=[pd.Timestamp(sel.fecha.iloc[0])-timedelta(days=12),max_date],title=None)
+    f.update_xaxes(
+    range=[pd.Timestamp(sel.fecha.iloc[0])-timedelta(days=12), max_date],
+    tickmode="array",
+    tickvals=sel.fecha.tolist(),
+    ticktext=[pd.Timestamp(x).strftime("%b %Y") for x in sel.fecha],
+    title=None
+)
     f.update_yaxes(title="Anomalía Niño 3.4 (°C)",range=[y_low,y_high])
     st.plotly_chart(f,use_container_width=True,config={"displaylogo":False})
     st.markdown('<p class="small-note">Una distancia estandarizada menor indica mayor parecido bajo el método de búsqueda empleado. No garantiza que las trayectorias futuras se repitan.</p>',unsafe_allow_html=True)
