@@ -84,8 +84,14 @@ def inicio():
                 "a una predicción."
             )
 
-        if st.button("Explorar ML1", use_container_width=True):
-            st.switch_page("ml1/app.py")
+        
+if st.button(
+    "Explorar ML1",
+    key="inicio_explorar_ml1",
+    use_container_width=True
+):
+    st.switch_page("ml1/app.py")
+
 
     with c2:
         with st.container(height=275, border=False):
@@ -100,8 +106,14 @@ def inicio():
                 "sin una mejora global consistente."
             )
 
-        if st.button("Explorar ML2", use_container_width=True):
-            st.switch_page("ml2/app.py")
+        
+if st.button(
+    "Explorar ML2",
+    key="inicio_explorar_ml2",
+    use_container_width=True
+):
+    st.switch_page("ml2/app.py")
+
 
     with c3:
         with st.container(height=275, border=False):
@@ -116,8 +128,14 @@ def inicio():
                 "a la referencia simple."
             )
 
-        if st.button("Explorar ML3", use_container_width=True):
-            st.switch_page("ml3/app.py")
+        
+if st.button(
+    "Explorar ML3",
+    key="inicio_explorar_ml3",
+    use_container_width=True
+):
+    st.switch_page("ml3/app.py")
+
 
 
     with c1:
