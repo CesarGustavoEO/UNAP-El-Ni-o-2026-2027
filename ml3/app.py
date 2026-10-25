@@ -97,7 +97,7 @@ with t1:
     obs_value=float(h.anom_nino34.iloc[-1])
     pred_value=float(sel.pronostico_nino34_c.iloc[-1])
     label_date=pred_date+timedelta(days=14)
-    right_edge=pred_date+timedelta(days=83)
+    right_edge=pred_date+timedelta(days=115)
     # La etiqueta del tramo observado se ubica junto al corte histórico,
     # evitando confundirla con la curva de pronóstico.
     f.add_annotation(x=obs_date,y=obs_value,xref="x",yref="y",
@@ -112,7 +112,10 @@ with t1:
                      showarrow=False,xanchor="left",yanchor="middle",xshift=5,
                      font=dict(family="Arial",size=11,color=COPPER),
                      bgcolor="rgba(255,255,255,0.96)")
-    f.update_layout(showlegend=False,margin=dict(l=10,r=18,t=32,b=15))
+f.update_layout(
+    showlegend=False,
+    margin=dict(l=10, r=30, t=32, b=15)
+)
     f.update_xaxes(range=[pd.Timestamp(h.fecha.iloc[0])-timedelta(days=12),right_edge])
     f.update_yaxes(title="Anomalía (°C)")
     st.plotly_chart(f,use_container_width=True,config={"displaylogo":False})
