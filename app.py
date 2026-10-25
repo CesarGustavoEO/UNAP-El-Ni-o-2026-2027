@@ -8,7 +8,7 @@ st.set_page_config(
     page_icon="🌊",
     layout="wide",
 )
-
+aplicar_tipografia()
 
 def inicio():
     st.markdown(
