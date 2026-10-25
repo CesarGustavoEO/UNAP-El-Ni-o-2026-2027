@@ -2,7 +2,7 @@
 """UNAP — Visualización de datos: El Niño 2026–2027."""
 
 import streamlit as st
-
+from tipografia_global import aplicar_tipografia
 st.set_page_config(
     page_title="El Niño 2026–2027 | UNAP",
     page_icon="🌊",
