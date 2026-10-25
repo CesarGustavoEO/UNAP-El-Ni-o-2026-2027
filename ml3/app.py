@@ -143,7 +143,7 @@ with t2:
     from datetime import timedelta
     final_date=pd.Timestamp(sel.fecha.iloc[-1])
     label_date=final_date+timedelta(days=13)
-    max_date=final_date+timedelta(days=73)
+    max_date=final_date+timedelta(days=48)
     all_values=[]
     for trace in f.data:
         all_values.extend(float(v) for v in trace.y if pd.notna(v))
