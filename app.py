@@ -58,6 +58,7 @@ def inicio():
         'Un recorrido por los antecedentes históricos del Pacífico, '
         'el aporte de ENSO a la estimación de lluvias en el Perú '
         'y una proyección experimental de la temperatura superficial del océano Pacífico ecuatorial (región Niño 3.4).'
+        'se utilizo datos reales de dos fuentes científicas: NOAA, que registra las condiciones oceánicas del Pacífico, y NASA POWER, que proporciona información meteorológica. '
         '</div>',
         unsafe_allow_html=True,
     )
