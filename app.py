@@ -57,7 +57,7 @@ def inicio():
         '<div class="lead">'
         'Un recorrido por los antecedentes históricos del Pacífico, '
         'el aporte de ENSO a la estimación de lluvias en el Perú '
-        'y una proyección experimental del indicador Niño 3.4.'
+        'y una proyección experimental de la temperatura superficial del océano Pacífico ecuatorial (región Niño 3.4).'
         '</div>',
         unsafe_allow_html=True,
     )
