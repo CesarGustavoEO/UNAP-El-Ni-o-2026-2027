@@ -1,0 +1,6 @@
+ML2 - Corrección visual UNAP
+
+Reemplazar exclusivamente ml2/app.py por este app.py.
+Mantener intacta la carpeta ml2/datos/ y los scripts de entrenamiento.
+El ZIP incluye código y dependencias, no los CSV originales.
+El dashboard requiere los cuatro CSV existentes en ml2/datos/.
