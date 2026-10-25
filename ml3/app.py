@@ -95,7 +95,7 @@ t1,t2,t3,t4=st.tabs(["01  Evolución y pronóstico","02  Episodios comparables",
 
 with t1:
     st.markdown('<div class="section-number">FIGURA 01 / SERIE TEMPORAL</div>',unsafe_allow_html=True)
-    st.subheader("De la observación a la estimación")
+    st.subheader("La proyección experimental muestra una disminución hasta marzo de 2027")
     st.caption("Anomalía de temperatura superficial del mar en Niño 3.4 (°C respecto a la referencia climatológica NOAA).")
     h=hist.tail(history)
     f=fig(475)
@@ -127,15 +127,15 @@ with t1:
     f.update_yaxes(title="Anomalía (°C)")
     st.plotly_chart(f,use_container_width=True,config={"displaylogo":False})
     st.markdown(f'<div class="note"><strong>Hallazgo principal.</strong> Desde {last.anom_nino34:+.2f} °C en septiembre de 2026, el modelo estima {end.pronostico_nino34_c:+.2f} °C en {month(end.fecha)}. La trayectoria proyectada no constituye una observación ni una previsión oficial.</div>',unsafe_allow_html=True)
-    st.markdown('<p class="small-note">La banda representa el percentil 90 de errores absolutos retrospectivos por horizonte; no equivale a un intervalo de confianza del 90 %.</p>',unsafe_allow_html=True)
+    st.markdown('<p class="small-note">La banda muestra la amplitud del percentil 90 de errores absolutos retrospectivos para cada horizonte. No es un intervalo de confianza del 90 % ni una probabilidad calibrada.</p>',unsafe_allow_html=True)
     with st.expander("Tabla de resultados y descarga"):
         st.dataframe(sel[["fecha","pronostico_nino34_c","limite_inferior_c","limite_superior_c"]],hide_index=True,use_container_width=True)
         st.download_button("Descargar proyecciones (CSV)",pron.to_csv(index=False).encode("utf-8-sig"),"ML3_pronostico.csv","text/csv")
 
 with t2:
     st.markdown('<div class="section-number">FIGURA 02 / CONTEXTO HISTÓRICO</div>',unsafe_allow_html=True)
-    st.subheader("Qué ocurrió después en episodios comparables")
-    st.caption("Las curvas históricas muestran hechos observados en otros años; no representan escenarios probabilísticos para 2026.")
+    st.subheader("Los episodios comparables no siguieron una trayectoria idéntica")
+    st.caption("Los episodios históricos se alinean por mes relativo para comparar sus trayectorias; no ocurrieron en 2026–2027 ni son escenarios probabilísticos.")
     years=st.multiselect("Seleccionar episodios",ana.anio_analogo.astype(int).head(10).tolist(),
         default=ana.anio_analogo.astype(int).head(3).tolist(),max_selections=4)
     f=fig(465)
@@ -180,13 +180,13 @@ with t2:
         ticktext=[pd.Timestamp(x).strftime("%b %Y") for x in sel.fecha],title=None)
     f.update_yaxes(title="Anomalía Niño 3.4 (°C)",range=[y_low,y_high])
     st.plotly_chart(f,use_container_width=True,config={"displaylogo":False})
-    st.markdown('<p class="small-note">Una distancia estandarizada menor indica mayor parecido bajo el método de búsqueda empleado. No garantiza que las trayectorias futuras se repitan.</p>',unsafe_allow_html=True)
+    st.markdown('<p class="small-note">Los años históricos se representan sobre un eje temporal común solo para comparar sus trayectorias. Una distancia estandarizada menor indica mayor parecido bajo el método empleado; no garantiza que se repitan.</p>',unsafe_allow_html=True)
     with st.expander("Consultar distancias históricas"):
         st.dataframe(ana[["anio_analogo","distancia_estandarizada"]].rename(columns={"anio_analogo":"Año","distancia_estandarizada":"Distancia estandarizada"}),hide_index=True,use_container_width=True)
 
 with t3:
     st.markdown('<div class="section-number">FIGURA 03 / EVALUACIÓN DEL MODELO</div>',unsafe_allow_html=True)
-    st.subheader("¿Mejora el modelo a una referencia sencilla?")
+    st.subheader("Ridge no supera consistentemente a la persistencia")
     st.caption("Error absoluto medio (MAE) en 21 pruebas históricas por horizonte. Cuanto menor, mejor.")
     f=fig(410)
     f.add_trace(go.Bar(x=met.horizonte_meses,y=met.mae_ml_c,name="Ridge · ML",marker_color=COPPER,
@@ -194,11 +194,12 @@ with t3:
     f.add_trace(go.Bar(x=met.horizonte_meses,y=met.mae_persistencia_c,name="Persistencia",marker_color=TEAL,
         text=[f"{x:.2f}" for x in met.mae_persistencia_c],textposition="outside"))
     f.update_layout(barmode="group",bargap=.24)
+    f.update_traces(textfont=dict(size=13))
     f.update_xaxes(title="Meses desde el origen",tickmode="linear",dtick=1)
     f.update_yaxes(title="MAE (°C)",rangemode="tozero")
     st.plotly_chart(f,use_container_width=True,config={"displaylogo":False})
     better=int((met.mae_ml_c<met.mae_persistencia_c).sum())
-    st.markdown(f'<div class="note"><strong>Lectura de validación.</strong> Ridge obtiene menor MAE que persistencia en {better} de 6 horizontes. Los resultados no acreditan una superioridad consistente del modelo.</div>',unsafe_allow_html=True)
+    st.markdown(f'<div class="note"><strong>Lectura de validación.</strong> Ridge obtiene menor MAE que persistencia en {better} de 6 horizontes. Las etiquetas de las barras se redondean a dos decimales, pero la comparación utiliza los valores completos. No se acredita superioridad consistente.</div>',unsafe_allow_html=True)
     st.markdown("#### Una prueba retrospectiva, paso a paso")
     years=sorted(pd.to_datetime(val.origen).dt.year.unique().tolist())
     yr=st.select_slider("Septiembre utilizado como origen",options=years,value=2023 if 2023 in years else years[-1])
@@ -209,11 +210,12 @@ with t3:
             line=dict(color=color,width=3,dash=dash),hovertemplate="%{y:+.2f} °C<extra>%{fullData.name}</extra>"))
     f.update_yaxes(title="Anomalía (°C)")
     st.plotly_chart(f,use_container_width=True,config={"displaylogo":False})
+    st.caption("El selector permite inspeccionar un origen histórico. Se conservan las predicciones y observaciones originales de la evaluación retrospectiva.")
     st.download_button("Descargar validación (CSV)",val.to_csv(index=False).encode("utf-8-sig"),"ML3_validacion.csv","text/csv")
 
 with t4:
     st.markdown('<div class="section-number">ANEXO / TRANSPARENCIA</div>',unsafe_allow_html=True)
-    st.subheader("Datos, método y alcance")
+    st.subheader("Datos, validación y límites de interpretación")
     st.markdown("""**Pregunta de investigación.** ¿Cómo podría evolucionar la anomalía mensual Niño 3.4 durante los seis meses posteriores a septiembre de 2026?
 
 **Fuente.** NOAA CPC; serie mensual procesada de enero de 1982 a septiembre de 2026. La anomalía Niño 3.4 no debe confundirse con la temperatura absoluta del mar ni con el índice ONI oficial.
