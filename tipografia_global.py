@@ -16,4 +16,22 @@ def aplicar_tipografia():
         color: #172C39;
     }
     [data-testid="stMetricValue"] {font-weight: 600;}
+    /* Restaurar iconos Material de Streamlit */
+.material-symbols-rounded,
+.material-symbols-outlined,
+.material-icons,
+[data-testid="stIconMaterial"] {
+    font-family: "Material Symbols Rounded" !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    white-space: nowrap !important;
+    direction: ltr !important;
+    font-feature-settings: "liga" !important;
+    -webkit-font-feature-settings: "liga" !important;
+    -webkit-font-smoothing: antialiased !important;
+}
     </style>''', unsafe_allow_html=True)
