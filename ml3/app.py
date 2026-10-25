@@ -127,6 +127,13 @@ with t2:
     st.caption("Las curvas históricas muestran hechos observados en otros años; no representan escenarios probabilísticos para 2026.")
     years=st.multiselect("Seleccionar episodios",ana.anio_analogo.astype(int).head(10).tolist(),default=ana.anio_analogo.astype(int).head(3).tolist(),max_selections=4)
     f=fig(465)
+    f.update_layout(
+    hovermode="x unified",
+    hoverlabel=dict(
+        bgcolor="white",
+        font_size=13
+    )
+)
     colors=["#536C83","#7C8D83","#9A8E7B","#9B8190"]
     endpoints=[]
     for i,year in enumerate(years):
