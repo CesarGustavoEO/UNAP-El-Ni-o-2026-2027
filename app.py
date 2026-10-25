@@ -68,7 +68,57 @@ def inicio():
 
     st.subheader("La historia en tres etapas")
 
+    
     c1, c2, c3 = st.columns(3, gap="large")
+
+    with c1:
+        with st.container(height=275, border=False):
+            st.markdown("### 01 · ¿A qué se parece?")
+            st.write(
+                "**ML1 — Similitud histórica.** "
+                "Compara patrones oceánicos de 2026 con episodios "
+                "anteriores usando distancias estandarizadas."
+            )
+            st.caption(
+                "Hallazgo: una analogía histórica no equivale "
+                "a una predicción."
+            )
+
+        if st.button("Explorar ML1", use_container_width=True):
+            st.switch_page("ml1/app.py")
+
+    with c2:
+        with st.container(height=275, border=False):
+            st.markdown("### 02 · ¿Ayuda a explicar la lluvia?")
+            st.write(
+                "**ML2 — Precipitaciones del Perú.** "
+                "Compara modelos con y sin información ENSO "
+                "en ubicaciones de referencia."
+            )
+            st.caption(
+                "Hallazgo: ENSO mejoró 8 de 25 ubicaciones, "
+                "sin una mejora global consistente."
+            )
+
+        if st.button("Explorar ML2", use_container_width=True):
+            st.switch_page("ml2/app.py")
+
+    with c3:
+        with st.container(height=275, border=False):
+            st.markdown("### 03 · ¿Cómo podría evolucionar?")
+            st.write(
+                "**ML3 — Pronóstico Niño 3.4.** "
+                "Visualiza una estimación experimental de seis meses "
+                "y la compara con persistencia."
+            )
+            st.caption(
+                "Hallazgo: Ridge no supera consistentemente "
+                "a la referencia simple."
+            )
+
+        if st.button("Explorar ML3", use_container_width=True):
+            st.switch_page("ml3/app.py")
+
 
     with c1:
         st.markdown("### 01 · ¿A qué se parece?")
