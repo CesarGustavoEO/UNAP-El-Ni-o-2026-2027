@@ -1,5 +1,5 @@
 
-"""Aplicación grupal UNAP — portada narrativa y módulos originales."""
+"""UNAP — Visualización de datos: El Niño 2026–2027."""
 
 import streamlit as st
 
@@ -18,21 +18,18 @@ def inicio():
             max-width: 1100px;
             padding-top: 2.5rem;
         }
-
         .eyebrow {
             font-size: .78rem;
             letter-spacing: .15em;
             color: #66757D;
             font-weight: 700;
         }
-
         .lead {
             font-size: 1.12rem;
             line-height: 1.75;
             color: #50636D;
             max-width: 780px;
         }
-
         .story {
             border-left: 3px solid #BD7141;
             padding: 12px 18px;
@@ -48,7 +45,8 @@ def inicio():
 
     st.markdown(
         '<div class="eyebrow">'
-        'UNAP · MAESTRÍA EN CIENCIA DE DATOS · VISUALIZACIÓN DE DATOS'
+        'UNAP · MAESTRÍA EN CIENCIA DE DATOS · '
+        'VISUALIZACIÓN DE DATOS'
         '</div>',
         unsafe_allow_html=True,
     )
@@ -65,129 +63,71 @@ def inicio():
     )
 
     st.divider()
-
     st.subheader("La historia en tres etapas")
 
-    
-    c1, c2, c3 = st.columns(3, gap="large")
+    columnas = st.columns(3, gap="large")
 
-    with c1:
-        with st.container(height=275, border=False):
-            st.markdown("### 01 · ¿A qué se parece?")
-            st.write(
-                "**ML1 — Similitud histórica.** "
+    modulos = [
+        {
+            "titulo": "01 · ¿A qué se parece?",
+            "nombre": "ML1 — Similitud histórica.",
+            "descripcion": (
                 "Compara patrones oceánicos de 2026 con episodios "
                 "anteriores usando distancias estandarizadas."
-            )
-            st.caption(
-                "Hallazgo: una analogía histórica no equivale "
-                "a una predicción."
-            )
-
-        
-if st.button(
-    "Explorar ML1",
-    key="inicio_explorar_ml1",
-    use_container_width=True
-):
-    st.switch_page("ml1/app.py")
-
-
-    with c2:
-        with st.container(height=275, border=False):
-            st.markdown("### 02 · ¿Ayuda a explicar la lluvia?")
-            st.write(
-                "**ML2 — Precipitaciones del Perú.** "
+            ),
+            "hallazgo": (
+                "Una analogía histórica no equivale a una predicción."
+            ),
+            "ruta": "ml1/app.py",
+        },
+        {
+            "titulo": "02 · ¿Ayuda a explicar la lluvia?",
+            "nombre": "ML2 — Precipitaciones del Perú.",
+            "descripcion": (
                 "Compara modelos con y sin información ENSO "
                 "en ubicaciones de referencia."
-            )
-            st.caption(
-                "Hallazgo: ENSO mejoró 8 de 25 ubicaciones, "
+            ),
+            "hallazgo": (
+                "ENSO mejoró 8 de 25 ubicaciones, "
                 "sin una mejora global consistente."
-            )
-
-        
-if st.button(
-    "Explorar ML2",
-    key="inicio_explorar_ml2",
-    use_container_width=True
-):
-    st.switch_page("ml2/app.py")
-
-
-    with c3:
-        with st.container(height=275, border=False):
-            st.markdown("### 03 · ¿Cómo podría evolucionar?")
-            st.write(
-                "**ML3 — Pronóstico Niño 3.4.** "
+            ),
+            "ruta": "ml2/app.py",
+        },
+        {
+            "titulo": "03 · ¿Cómo podría evolucionar?",
+            "nombre": "ML3 — Pronóstico Niño 3.4.",
+            "descripcion": (
                 "Visualiza una estimación experimental de seis meses "
                 "y la compara con persistencia."
-            )
-            st.caption(
-                "Hallazgo: Ridge no supera consistentemente "
+            ),
+            "hallazgo": (
+                "Ridge no supera consistentemente "
                 "a la referencia simple."
-            )
+            ),
+            "ruta": "ml3/app.py",
+        },
+    ]
 
-        
-if st.button(
-    "Explorar ML3",
-    key="inicio_explorar_ml3",
-    use_container_width=True
-):
-    st.switch_page("ml3/app.py")
+    for i, (columna, modulo) in enumerate(
+        zip(columnas, modulos), start=1
+    ):
+        with columna:
+            with st.container(height=280, border=False):
+                st.markdown(f"### {modulo['titulo']}")
+                st.markdown(
+                    f"**{modulo['nombre']}** "
+                    f"{modulo['descripcion']}"
+                )
+                st.caption(
+                    f"Hallazgo: {modulo['hallazgo']}"
+                )
 
-
-
-    with c1:
-        st.markdown("### 01 · ¿A qué se parece?")
-
-        st.write(
-            "**ML1 — Similitud histórica.** "
-            "Compara patrones oceánicos de 2026 con episodios "
-            "anteriores usando distancias estandarizadas."
-        )
-
-        st.caption(
-            "Hallazgo: una analogía histórica no equivale "
-            "a una predicción."
-        )
-
-        if st.button("Explorar ML1", use_container_width=True):
-            st.switch_page("ml1/app.py")
-
-    with c2:
-        st.markdown("### 02 · ¿Ayuda a explicar la lluvia?")
-
-        st.write(
-            "**ML2 — Precipitaciones del Perú.** "
-            "Compara modelos con y sin información ENSO "
-            "en ubicaciones de referencia."
-        )
-
-        st.caption(
-            "Hallazgo: ENSO mejoró 8 de 25 ubicaciones, "
-            "sin una mejora global consistente."
-        )
-
-        if st.button("Explorar ML2", use_container_width=True):
-            st.switch_page("ml2/app.py")
-
-    with c3:
-        st.markdown("### 03 · ¿Cómo podría evolucionar?")
-
-        st.write(
-            "**ML3 — Pronóstico Niño 3.4.** "
-            "Visualiza una estimación experimental de seis meses "
-            "y la compara con persistencia."
-        )
-
-        st.caption(
-            "Hallazgo: Ridge no supera consistentemente "
-            "a la referencia simple."
-        )
-
-        if st.button("Explorar ML3", use_container_width=True):
-            st.switch_page("ml3/app.py")
+            if st.button(
+                f"Explorar ML{i}",
+                key=f"inicio_ml_{i}",
+                use_container_width=True,
+            ):
+                st.switch_page(modulo["ruta"])
 
     st.divider()
 
@@ -207,8 +147,6 @@ if st.button(
         """,
         unsafe_allow_html=True,
     )
-
-   
 
 
 pages = [
